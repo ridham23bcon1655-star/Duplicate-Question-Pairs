@@ -1,8 +1,9 @@
 
 import streamlit as st
 import pickle
+import gzip
 
-with open("model.pkl", "rb") as f:
+with gzip.open("model.pkl.gz", "rb") as f:
     model = pickle.load(f)
 
 with open("cv.pkl", "rb") as f:
@@ -25,3 +26,4 @@ if st.button("Check Duplicate"):
             st.info("Not Duplicate Questions")
     else:
         st.warning("Please enter both questions.")
+
